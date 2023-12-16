@@ -1,0 +1,12 @@
+#create header
+javac -h . *.java
+
+#compile c file
+gcc -c -I"C:\Program Files\Java\jdk-11.0.10/include/" -I"C:\Program Files\Java\jdk-11.0.10/include/win32" -o *.o *.c
+
+
+-create libaray
+gcc -shared -o *.dll *.o -Wl,-add-stdcall-alias
+
+-run java code
+java -cp . -Djava.library.path=. *
